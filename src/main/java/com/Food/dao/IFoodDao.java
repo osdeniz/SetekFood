@@ -1,17 +1,16 @@
 package com.Food.dao;
 
-import com.Food.model.Food;
+
+import com.Food.entity.FoodEntity;
 
 import java.util.List;
 
 public interface IFoodDao {
-    List<Food> getList();
 
-    /* id null */
-    Food create(Food food);
+    List<FoodEntity> getAllList();
 
-    /* id var */
-    Food update(Food food);
+    FoodEntity createOrUpdate(FoodEntity foodEntity);
 
-    int delete(Integer id);
+    FoodEntity getById(Long id);
+
 }

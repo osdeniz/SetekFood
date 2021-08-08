@@ -1,7 +1,9 @@
 package com.Food.serviceimpl;
 
 import com.Food.dao.IFoodDao;
+import com.Food.entity.FoodEntity;
 import com.Food.model.Food;
+import com.Food.model.dto.FoodDto;
 import com.Food.service.IFoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,39 +18,25 @@ public class FoodServiceImpl implements IFoodService {
     @Autowired
     private IFoodDao foodDao;
 
+
     @Override
-    public List<Food> getList() {
-        return foodDao.getList();
+    public List<FoodEntity> getAllList() {
+        return foodDao.getAllList();
     }
 
     @Override
-    public Food create(Food food) {
-        Date newDate = new Date();
-        String pattern = "dd-MMM-yyyy HH:mm";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format(newDate);
-        food.setCreateDate(date);
-        return foodDao.create(food);
-    }
-
-    @Override
-    public Food update(Food food) {
-        Date newDate = new Date();
-        String pattern = "dd-MMM-yyyy HH:mm";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format(newDate);
-        food.setLastModifiadDate(date);
-        return foodDao.update(food);
-    }
-
-    @Override
-    public String delete(Integer id) {
-        int status = foodDao.delete(id);
-
-        if (status == 1){
-            return "İşlem Başarılı";
+    public FoodEntity createOrUpdate(FoodDto foodDto) {
+        FoodEntity foodEntity = null;
+        if(foodDto.getId() != null){
+            foodEntity = foodDao.getById(foodDto.getId());
+        }else{
+            foodEntity = new FoodEntity();
+            foodEntity.setCreateDate(new Date());
         }
+        foodEntity.setTitle(foodDto.getTitle());
+        foodEntity.setDescription(foodDto.getDescription());
+        foodEntity.setFoodDeails(foodDto.getFoodDetails());
 
-        return  "İşlem Başarısız";
+        return foodDao.createOrUpdate(foodEntity);
     }
 }
