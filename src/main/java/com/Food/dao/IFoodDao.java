@@ -5,17 +5,13 @@ import com.Food.model.Food;
 import java.util.List;
 
 public interface IFoodDao {
+    List<Food> getList();
 
-    String message();
-
-    List<Food> foods();
-
+    /* id null */
     Food create(Food food);
 
+    /* id var */
     Food update(Food food);
 
-    int delete(int id);
-
-
-
+    int delete(Integer id);
 }

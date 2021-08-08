@@ -8,20 +8,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/food", produces = "application/json")
+@RequestMapping(value = "/api/food2", produces = "application/json")
 public class FoodController {
 
     @Autowired
     private IFoodService foodService;
 
-    @RequestMapping(value = "message",method = RequestMethod.DELETE)
-    public String message(){
-        return foodService.message();
-    }
-
     @RequestMapping(value = "list",method = RequestMethod.GET)
-    public List<Food> foods(){
-        return foodService.foods();
+    public List<Food> getList(){
+        return foodService.getList();
     }
 
     @RequestMapping(value = "create",method = RequestMethod.POST)
@@ -34,9 +29,10 @@ public class FoodController {
         return foodService.update(food);
     }
 
-    @RequestMapping(value = "{id}",method = RequestMethod.DELETE)
+    @RequestMapping(value = "delete/{id}",method = RequestMethod.DELETE)
     public String delete(@PathVariable Integer id){
         return foodService.delete(id);
     }
+
 
 }

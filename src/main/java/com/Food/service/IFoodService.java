@@ -6,13 +6,12 @@ import java.util.List;
 
 public interface IFoodService {
 
-    String message();
-
-    List<Food> foods();
+    List<Food> getList();
 
     Food create(Food food);
 
     Food update(Food food);
 
-    String delete(int id);
+    String delete(Integer id);
+
 }

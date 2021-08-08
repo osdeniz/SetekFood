@@ -1,6 +1,6 @@
 package com.Food.model;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -8,14 +8,24 @@ public class Food {
 
     private Integer id;
 
-    private Date createDate;
-
     private String title;
 
     private String description;
 
-    private List<String> list;
+    private String createDate;
 
+    private String lastModifiadDate;
+
+    private List<String> list = new ArrayList<>();
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -41,19 +51,19 @@ public class Food {
         this.list = list;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
+    }
+
+    public String getLastModifiadDate() {
+        return lastModifiadDate;
+    }
+
+    public void setLastModifiadDate(String lastModifiadDate) {
+        this.lastModifiadDate = lastModifiadDate;
     }
 }

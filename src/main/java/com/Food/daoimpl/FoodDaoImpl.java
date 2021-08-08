@@ -1,4 +1,4 @@
-package com.Food.daoimp;
+package com.Food.daoimpl;
 
 import com.Food.dao.IFoodDao;
 import com.Food.model.Food;
@@ -11,51 +11,51 @@ import java.util.List;
 public class FoodDaoImpl implements IFoodDao {
 
     private static List<Food> foods = new ArrayList<>();
+    private static int i = 0;
+
 
     @Override
-    public String message() {
-        return "hello";
-    }
-
-    @Override
-    public List<Food> foods() {
+    public List<Food> getList() {
         return foods;
     }
 
     @Override
     public Food create(Food food) {
+        i = i + 1;
+        food.setId(i);
         foods.add(food);
         return food;
     }
 
     @Override
     public Food update(Food food) {
-        for (Food item : foods){
-            if(food.getId() == item.getId()){
+        for (Food item:foods){
+            if(item.getId() == food.getId()){
                 item.setTitle(food.getTitle());
                 item.setDescription(food.getDescription());
                 item.setList(food.getList());
+                item.setLastModifiadDate(food.getLastModifiadDate());
             }
         }
         return food;
     }
 
     @Override
-    public int delete(int id) {
+    public int delete(Integer id) {
         int index = -1;
-        if (foods.size() > 0){
-            for (int i=0;i<foods.size();i++){
-                if(foods.get(i).getId() == id){
-                    index = i;
-                    break;
-                }
+
+        for (int i=0 ;i<foods.size();i++){
+            if(foods.get(i).getId() == id){
+                index = i;
+                break;
             }
-
-            foods.remove(index);
         }
-        return index;
+
+        if (index != -1){
+            foods.remove(index);
+            return 1;
+        }
+
+        return 0;
     }
-
-
-
 }
