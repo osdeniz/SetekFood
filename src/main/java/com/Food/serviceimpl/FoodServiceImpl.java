@@ -39,4 +39,10 @@ public class FoodServiceImpl implements IFoodService {
 
         return foodDao.createOrUpdate(foodEntity);
     }
+
+    @Override
+    public String deleteById(Long id) {
+        int result = foodDao.removeById(id);
+        return result == 1 ? "İşlem başarılı." : "İşlem başarısız.";
+    }
 }

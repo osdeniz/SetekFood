@@ -31,4 +31,10 @@ public class FoodDaoImpl implements IFoodDao {
     public FoodEntity getById(Long id) {
         return repository.findById(id).get();
     }
+
+    @Override
+    public int removeById(Long id) {
+        repository.deleteById(id);
+        return 1;
+    }
 }

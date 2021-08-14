@@ -7,6 +7,7 @@ import com.Food.service.IFoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
 @RestController
@@ -16,32 +17,20 @@ public class FoodController {
     @Autowired
     private IFoodService foodService;
 
-
     @RequestMapping(value = "createOrUpdate",method = RequestMethod.POST)
     public FoodEntity create(@RequestBody FoodDto foodDto){
         return foodService.createOrUpdate(foodDto);
     }
 
-
-   /* @RequestMapping(value = "list",method = RequestMethod.GET)
-    public List<Food> getList(){
-        return foodService.getList();
+    @RequestMapping(value = "alllist",method = RequestMethod.GET)
+    public List<FoodEntity> getAllList(){
+        return foodService.getAllList();
     }
 
-    @RequestMapping(value = "create",method = RequestMethod.POST)
-    public Food create(@RequestBody Food food){
-        return foodService.create(food);
+    @RequestMapping(value = "{id}",method = RequestMethod.DELETE)
+    public String delete(@PathVariable Long id){
+        return foodService.deleteById(id);
     }
-
-    @RequestMapping(value = "update",method = RequestMethod.PUT)
-    public Food update(@RequestBody Food food){
-        return foodService.update(food);
-    }
-
-    @RequestMapping(value = "delete/{id}",method = RequestMethod.DELETE)
-    public String delete(@PathVariable Integer id){
-        return foodService.delete(id);
-    } */
 
 
 }
