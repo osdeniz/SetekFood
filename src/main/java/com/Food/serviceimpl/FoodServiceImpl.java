@@ -1,7 +1,9 @@
 package com.Food.serviceimpl;
 
+import com.Food.dao.IAuthDao;
 import com.Food.dao.IFoodDao;
 import com.Food.entity.FoodEntity;
+import com.Food.entity.UserEntity;
 import com.Food.model.Food;
 import com.Food.model.dto.FoodDto;
 import com.Food.service.IFoodService;
@@ -17,6 +19,9 @@ public class FoodServiceImpl implements IFoodService {
 
     @Autowired
     private IFoodDao foodDao;
+
+    @Autowired
+    private IAuthDao authDao;
 
 
     @Override
@@ -37,6 +42,9 @@ public class FoodServiceImpl implements IFoodService {
         foodEntity.setDescription(foodDto.getDescription());
         foodEntity.setFoodDeails(foodDto.getFoodDetails());
 
+       UserEntity currentUser = authDao.getByUserId(foodDto.getUserId());
+       currentUser.setFirstName("Veli");
+       foodEntity.setUser(currentUser);
         return foodDao.createOrUpdate(foodEntity);
     }
 

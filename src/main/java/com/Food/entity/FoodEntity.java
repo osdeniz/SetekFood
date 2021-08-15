@@ -27,6 +27,9 @@ public class FoodEntity {
     @Column(name ="FOODDETAILS" )
     private String foodDeails;
 
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
+    private UserEntity user;
+
     public Long getId() {
         return id;
     }
@@ -65,5 +68,13 @@ public class FoodEntity {
 
     public void setFoodDeails(String foodDeails) {
         this.foodDeails = foodDeails;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 }

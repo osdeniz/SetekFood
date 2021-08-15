@@ -10,6 +10,8 @@ public class FoodDto {
 
     private String foodDetails;
 
+    private Long userId;
+
     public Long getId() {
         return id;
     }
@@ -40,5 +42,13 @@ public class FoodDto {
 
     public void setFoodDetails(String foodDetails) {
         this.foodDetails = foodDetails;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }
