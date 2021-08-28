@@ -42,9 +42,10 @@ public class FoodServiceImpl implements IFoodService {
         foodEntity.setDescription(foodDto.getDescription());
         foodEntity.setFoodDeails(foodDto.getFoodDetails());
 
-       UserEntity currentUser = authDao.getByUserId(foodDto.getUserId());
-       currentUser.setFirstName("Veli");
-       foodEntity.setUser(currentUser);
+        if(foodDto.getUserId() != null){
+            UserEntity currentUser = authDao.getByUserId(foodDto.getUserId());
+            foodEntity.setUser(currentUser);
+        }
         return foodDao.createOrUpdate(foodEntity);
     }
 
@@ -52,5 +53,10 @@ public class FoodServiceImpl implements IFoodService {
     public String deleteById(Long id) {
         int result = foodDao.removeById(id);
         return result == 1 ? "İşlem başarılı." : "İşlem başarısız.";
+    }
+
+    @Override
+    public FoodEntity getById(Long id) {
+        return foodDao.getById(id);
     }
 }

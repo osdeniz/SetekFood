@@ -14,5 +14,7 @@ public interface IFoodService {
 
     String deleteById(Long id);
 
+    FoodEntity getById(Long id);
+
 
 }

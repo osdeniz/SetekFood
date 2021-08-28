@@ -32,5 +32,10 @@ public class FoodController {
         return foodService.deleteById(id);
     }
 
+    @RequestMapping(value = "{id}",method = RequestMethod.GET)
+    public FoodEntity getById(@PathVariable Long id){
+        return  foodService.getById(id);
+    }
+
 
 }
