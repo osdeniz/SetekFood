@@ -21,7 +21,7 @@ public class SimpleCorsFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse)servletResponse;
 
         response.setHeader("Access-Control-Allow-Origin","http://localhost:4200");
-        response.setHeader("Access-Control-Allow-Methods", "POST,PUT, GET, OPTIONS");
+        response.setHeader("Access-Control-Allow-Methods", "POST,PUT, GET,DELETE, OPTIONS");
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Headers",
                 "content-type, x-gwt-module-base, x-gwt-permutation, clientid, longpush");
