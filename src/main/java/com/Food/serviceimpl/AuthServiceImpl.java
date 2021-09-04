@@ -7,6 +7,8 @@ import com.Food.service.IAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AuthServiceImpl implements IAuthService {
 
@@ -34,6 +36,9 @@ public class AuthServiceImpl implements IAuthService {
         user.setLastName(userDto.getLastName());
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
+        user.setImage(userDto.getImage());
+        user.setRole(userDto.getRole());
+
         return authDao.update(user);
     }
 
@@ -46,5 +51,10 @@ public class AuthServiceImpl implements IAuthService {
     public String removeUser(Long id) {
         int result = authDao.removeById(id);
         return result == 1 ? "İşlem başarılı.":"İşlem başarısız.";
+    }
+
+    @Override
+    public List<UserEntity> getUsers() {
+        return authDao.getUsers();
     }
 }

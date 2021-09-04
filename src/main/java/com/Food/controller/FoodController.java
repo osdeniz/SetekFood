@@ -37,5 +37,10 @@ public class FoodController {
         return  foodService.getById(id);
     }
 
+    @RequestMapping(value = "/search/{search}",method = RequestMethod.GET)
+    public List<FoodEntity> search(@PathVariable String search){
+        return foodService.search(search);
+    }
+
 
 }

@@ -16,5 +16,7 @@ public interface IFoodService {
 
     FoodEntity getById(Long id);
 
+    List<FoodEntity> search(String search);
+
 
 }

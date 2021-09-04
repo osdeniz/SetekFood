@@ -7,6 +7,8 @@ import com.Food.service.IAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/api/auth", produces = "application/json")
 public class AuthController {
@@ -28,4 +30,11 @@ public class AuthController {
     public String delete(@PathVariable Long id){
         return authService.removeUser(id);
     }
+
+    @RequestMapping(value="users",method = RequestMethod.GET)
+    public List<UserEntity> getUsers(){
+        return authService.getUsers();
+    }
+
+
 }

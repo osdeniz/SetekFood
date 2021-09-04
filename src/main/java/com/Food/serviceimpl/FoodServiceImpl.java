@@ -42,6 +42,7 @@ public class FoodServiceImpl implements IFoodService {
         foodEntity.setDescription(foodDto.getDescription());
         foodEntity.setFoodDeails(foodDto.getFoodDetails());
 
+
         if(foodDto.getUserId() != null){
             UserEntity currentUser = authDao.getByUserId(foodDto.getUserId());
             foodEntity.setUser(currentUser);
@@ -58,5 +59,10 @@ public class FoodServiceImpl implements IFoodService {
     @Override
     public FoodEntity getById(Long id) {
         return foodDao.getById(id);
+    }
+
+    @Override
+    public List<FoodEntity> search(String search) {
+        return foodDao.search(search);
     }
 }

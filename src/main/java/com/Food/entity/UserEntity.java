@@ -24,8 +24,15 @@ public class UserEntity {
     @Column(name = "EMAIL")
     private String email;
 
+    @JsonIgnore
     @Column(name = "PASSWORD")
     private String password;
+
+    @Column(name = "ROLE")
+    private String role;
+
+    @Column(name = "IMAGE")
+    private String image;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy ="user")
     @JsonIgnore
@@ -78,5 +85,21 @@ public class UserEntity {
 
     public void setFoods(Set<FoodEntity> foods) {
         this.foods = foods;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

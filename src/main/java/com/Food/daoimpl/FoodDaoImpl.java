@@ -37,4 +37,9 @@ public class FoodDaoImpl implements IFoodDao {
         repository.deleteById(id);
         return 1;
     }
+
+    @Override
+    public List<FoodEntity> search(String search) {
+        return repository.findByTitleContainingOrDescriptionContaining(search,search);
+    }
 }

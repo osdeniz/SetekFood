@@ -2,6 +2,8 @@ package com.Food.dao;
 
 import com.Food.entity.UserEntity;
 
+import java.util.List;
+
 public interface IAuthDao {
 
     UserEntity register(UserEntity userEntity);
@@ -11,5 +13,7 @@ public interface IAuthDao {
     UserEntity getByUserId(Long id);
 
     int removeById(Long id);
+
+    List<UserEntity> getUsers();
 
 }

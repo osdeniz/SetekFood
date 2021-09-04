@@ -3,6 +3,8 @@ package com.Food.service;
 import com.Food.entity.UserEntity;
 import com.Food.model.dto.UserDto;
 
+import java.util.List;
+
 public interface IAuthService {
 
     UserEntity create(UserDto userDto);
@@ -12,4 +14,6 @@ public interface IAuthService {
     UserEntity getById(Long id);
 
     String removeUser(Long id);
+
+    List<UserEntity> getUsers();
 }

@@ -15,6 +15,8 @@ public interface IFoodDao {
 
     int removeById(Long id);
 
+    List<FoodEntity> search(String search);
+
 
 
 }

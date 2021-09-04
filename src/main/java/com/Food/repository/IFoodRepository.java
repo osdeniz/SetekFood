@@ -9,4 +9,6 @@ public interface IFoodRepository extends CrudRepository<FoodEntity, Long> {
 
     List<FoodEntity> findAll();
 
+    List<FoodEntity> findByTitleContainingOrDescriptionContaining(String title,String description);
+
 }

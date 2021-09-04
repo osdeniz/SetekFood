@@ -12,6 +12,10 @@ public class UserDto {
 
     private String password;
 
+    private String image;
+
+    private String role;
+
     public Long getId() {
         return id;
     }
@@ -50,5 +54,21 @@ public class UserDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
