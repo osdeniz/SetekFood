@@ -24,8 +24,8 @@ public class AuthDaoImpl implements IAuthDao {
     }
 
     @Override
-    public UserEntity getByUserId(Long id) {
-        UserEntity user = userRepository.findById(id).get();
+    public UserEntity getByUserId(long id) {
+        UserEntity user = userRepository.findById(id);
         return user;
     }
 

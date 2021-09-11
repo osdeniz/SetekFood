@@ -10,9 +10,9 @@ public interface IFoodService {
 
     List<FoodEntity> getAllList();
 
-    FoodEntity createOrUpdate(FoodDto foodDto);
+    FoodEntity createOrUpdate(FoodDto foodDto,Long userId) throws Exception;
 
-    String deleteById(Long id);
+    String deleteById(Long id,Long userId) throws Exception;
 
     FoodEntity getById(Long id);
 

@@ -22,6 +22,8 @@ public class AuthServiceImpl implements IAuthService {
         userEntity.setLastName(userDto.getLastName());
         userEntity.setEmail(userDto.getEmail());
         userEntity.setPassword(userDto.getPassword());
+        userEntity.setRole(userDto.getRole());
+        userEntity.setImage(userDto.getImage());
         return authDao.register(userEntity);
     }
 
@@ -38,6 +40,9 @@ public class AuthServiceImpl implements IAuthService {
         user.setPassword(userDto.getPassword());
         user.setImage(userDto.getImage());
         user.setRole(userDto.getRole());
+
+
+
 
         return authDao.update(user);
     }

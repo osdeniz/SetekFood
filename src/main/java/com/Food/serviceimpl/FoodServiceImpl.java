@@ -30,7 +30,7 @@ public class FoodServiceImpl implements IFoodService {
     }
 
     @Override
-    public FoodEntity createOrUpdate(FoodDto foodDto) {
+    public FoodEntity createOrUpdate(FoodDto foodDto ,Long userId) throws Exception{
         FoodEntity foodEntity = null;
         if(foodDto.getId() != null){
             foodEntity = foodDao.getById(foodDto.getId());
@@ -43,17 +43,36 @@ public class FoodServiceImpl implements IFoodService {
         foodEntity.setFoodDeails(foodDto.getFoodDetails());
 
 
-        if(foodDto.getUserId() != null){
-            UserEntity currentUser = authDao.getByUserId(foodDto.getUserId());
+
+
+        if(userId != null){
+
+            UserEntity currentUser = authDao.getByUserId(userId);
             foodEntity.setUser(currentUser);
         }
-        return foodDao.createOrUpdate(foodEntity);
+
+        if (foodEntity.getId() != null){
+
+            if(foodEntity.getUser() != null && foodEntity.getUser().getId() == userId){
+                return foodDao.createOrUpdate(foodEntity);
+            }
+
+            throw new Exception("Yetki Hatası.");
+        }else{
+            return foodDao.createOrUpdate(foodEntity);
+        }
     }
 
     @Override
-    public String deleteById(Long id) {
-        int result = foodDao.removeById(id);
-        return result == 1 ? "İşlem başarılı." : "İşlem başarısız.";
+    public String deleteById(Long id,Long userId) throws Exception {
+        FoodEntity food = foodDao.getById(id);
+        if(food.getUser() != null && food.getUser().getId() == userId){
+            int result = foodDao.removeById(id);
+            return result == 1 ? "İşlem başarılı." : "İşlem başarısız.";
+        }
+
+        return "İşlem başarısız.";
+
     }
 
     @Override

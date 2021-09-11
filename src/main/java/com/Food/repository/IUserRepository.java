@@ -8,4 +8,6 @@ import java.util.List;
 public interface IUserRepository extends CrudRepository<UserEntity,Long> {
 
      List<UserEntity> findAll();
+
+     UserEntity findById(long id);
 }

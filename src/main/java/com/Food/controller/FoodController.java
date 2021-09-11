@@ -18,8 +18,8 @@ public class FoodController {
     private IFoodService foodService;
 
     @RequestMapping(value = "createOrUpdate",method = RequestMethod.POST)
-    public FoodEntity create(@RequestBody FoodDto foodDto){
-        return foodService.createOrUpdate(foodDto);
+    public FoodEntity create(@RequestParam("userId") Long userId, @RequestBody FoodDto foodDto) throws Exception{
+        return foodService.createOrUpdate(foodDto,userId);
     }
 
     @RequestMapping(value = "alllist",method = RequestMethod.GET)
@@ -28,8 +28,8 @@ public class FoodController {
     }
 
     @RequestMapping(value = "{id}",method = RequestMethod.DELETE)
-    public String delete(@PathVariable Long id){
-        return foodService.deleteById(id);
+    public String delete(@RequestParam("userId") Long userId,@PathVariable Long id) throws Exception{
+        return foodService.deleteById(id,userId);
     }
 
     @RequestMapping(value = "{id}",method = RequestMethod.GET)

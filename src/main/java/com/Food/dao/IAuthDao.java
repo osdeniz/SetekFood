@@ -10,7 +10,7 @@ public interface IAuthDao {
 
     UserEntity update(UserEntity userEntity);
 
-    UserEntity getByUserId(Long id);
+    UserEntity getByUserId(long id);
 
     int removeById(Long id);
 

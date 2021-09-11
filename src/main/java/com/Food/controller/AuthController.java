@@ -36,5 +36,10 @@ public class AuthController {
         return authService.getUsers();
     }
 
+    @RequestMapping(value = "{id}",method = RequestMethod.GET)
+    public UserEntity getUserInfoById(@PathVariable long id){
+        return authService.getById(id);
+    }
+
 
 }
