@@ -27,6 +27,10 @@ public class FoodEntity {
     @Column(name ="FOODDETAILS" )
     private String foodDeails;
 
+    @Lob
+    @Column(name ="COMMENT" )
+    private String comment;
+
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
     private UserEntity user;
 

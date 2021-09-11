@@ -12,6 +12,8 @@ public class FoodDto {
 
     private Long userId;
 
+    private String comment;
+
     public Long getId() {
         return id;
     }
@@ -50,5 +52,13 @@ public class FoodDto {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }
