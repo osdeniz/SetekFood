@@ -89,7 +89,13 @@ public class FoodServiceImpl implements IFoodService {
 
     @Override
     public FoodEntity getById(Long id) {
-        return foodDao.getById(id);
+
+        FoodEntity food = foodDao.getById(id);
+        if (food != null){
+            food.getImage().setImageByte(ImageUtility.decompressBytes(food.getImage().getImageByte()));
+        }
+
+        return food;
     }
 
     @Override
