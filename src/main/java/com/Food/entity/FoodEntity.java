@@ -27,12 +27,14 @@ public class FoodEntity {
     @Column(name ="FOODDETAILS" )
     private String foodDeails;
 
-    @Lob
-    @Column(name ="COMMENT" )
-    private String comment;
+
 
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
     private UserEntity user;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "image_id",referencedColumnName = "id")
+    private ImageEntity image;
 
     public Long getId() {
         return id;
@@ -80,5 +82,15 @@ public class FoodEntity {
 
     public void setUser(UserEntity user) {
         this.user = user;
+    }
+
+
+
+    public ImageEntity getImage() {
+        return image;
+    }
+
+    public void setImage(ImageEntity image) {
+        this.image = image;
     }
 }

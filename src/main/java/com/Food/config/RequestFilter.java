@@ -17,7 +17,7 @@ public class RequestFilter extends OncePerRequestFilter {
 
        String url =  httpServletRequest.getRequestURI();
 
-           if(!(url.indexOf("users") > -1)){
+           if(!(url.indexOf("auth") > -1)){
                if (userId == null){
                    httpServletResponse.sendError(403);
                }
