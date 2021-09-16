@@ -17,6 +17,4 @@ public interface IFoodDao {
 
     List<FoodEntity> search(String search);
 
-
-
 }

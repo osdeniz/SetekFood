@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "FOOD_TABLE")
-public class FoodEntity {
+public class    FoodEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -25,7 +25,7 @@ public class FoodEntity {
 
     @Lob
     @Column(name ="FOODDETAILS" )
-    private String foodDeails;
+    private String foodDetails;
 
 
 
@@ -68,12 +68,12 @@ public class FoodEntity {
         this.createDate = createDate;
     }
 
-    public String getFoodDeails() {
-        return foodDeails;
+    public String getFoodDetails() {
+        return foodDetails;
     }
 
-    public void setFoodDeails(String foodDeails) {
-        this.foodDeails = foodDeails;
+    public void setFoodDetails(String foodDetails) {
+        this.foodDetails = foodDetails;
     }
 
     public UserEntity getUser() {

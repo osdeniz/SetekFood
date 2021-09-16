@@ -14,7 +14,7 @@ public class Food {
 
     private String createDate;
 
-    private String lastModifiadDate;
+    private String lastModifiedDate;
 
     private List<String> list = new ArrayList<>();
 
@@ -59,11 +59,11 @@ public class Food {
         this.createDate = createDate;
     }
 
-    public String getLastModifiadDate() {
-        return lastModifiadDate;
+    public String getLastModifiedDate() {
+        return lastModifiedDate;
     }
 
-    public void setLastModifiadDate(String lastModifiadDate) {
-        this.lastModifiadDate = lastModifiadDate;
+    public void setLastModifiedDate(String lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 }

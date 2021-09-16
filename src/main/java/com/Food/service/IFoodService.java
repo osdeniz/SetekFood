@@ -1,12 +1,12 @@
 package com.Food.service;
 
-import com.Food.entity.FoodEntity;
-import com.Food.exception.CustomException;
-import com.Food.model.Food;
-import com.Food.model.dto.FoodDto;
-import org.springframework.web.multipart.MultipartFile;
+    import com.Food.entity.FoodEntity;
+    import com.Food.exception.CustomException;
+    import com.Food.model.Food;
+    import com.Food.model.dto.FoodDto;
+    import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
+    import java.util.List;
 
 public interface IFoodService {
 

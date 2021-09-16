@@ -52,7 +52,7 @@ public class FoodServiceImpl implements IFoodService {
         }
         foodEntity.setTitle(foodDto.getTitle());
         foodEntity.setDescription(foodDto.getDescription());
-        foodEntity.setFoodDeails(foodDto.getFoodDetails());
+        foodEntity.setFoodDetails(foodDto.getFoodDetails());
 
 
 
@@ -119,7 +119,7 @@ public class FoodServiceImpl implements IFoodService {
             }
             foodEntity.setTitle(foodDto.getTitle());
             foodEntity.setDescription(foodDto.getDescription());
-            foodEntity.setFoodDeails(foodDto.getFoodDetails());
+            foodEntity.setFoodDetails(foodDto.getFoodDetails());
 
             if(userId != null){
 
